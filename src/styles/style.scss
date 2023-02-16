@@ -12,6 +12,10 @@
   color: white;
 }
 
+body {
+  background: #181818;
+}
+
 button, input {
   cursor: pointer;
 }
@@ -39,6 +43,14 @@ $red : #F5222D;
   padding: 0 20px;
 }
 
+.content {
+  padding: 20px 0 100px;
+  display: flex;
+  column-gap: 30px;
+}
+
 @import "header";
 @import "switchLang";
 @import "register";
+@import "aside";
+@import "friends";

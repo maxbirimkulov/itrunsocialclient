@@ -4,6 +4,7 @@ import HeaderSearch from "./HeaderSearch";
 import noUser from '../../assets/noUser.png'
 import {BiChevronsDown} from 'react-icons/bi'
 import SwitchLang from "./SwitchLang/SwitchLang";
+import {Link} from "react-router-dom";
 
 const Header = () => {
     return (
@@ -11,7 +12,10 @@ const Header = () => {
             <div className="container">
                 <nav className='header__nav'>
                     <div className='header__left'>
-                        <h1 className='header__title'>IT-RUN web</h1>
+                        <Link to={'/'}>
+                            <h1 className='header__title'>IT-RUN web</h1>
+                        </Link>
+
                         <HeaderSearch/>
                     </div>
                     <div className='header__right'>
