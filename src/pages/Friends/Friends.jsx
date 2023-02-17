@@ -26,7 +26,7 @@ const Friends = () => {
                                         Ivan Ivanov
                                     </a>
                                     <p className="friends__card-friends">
-                                        нет общих друзей
+                                        Нет общих друзей
                                     </p>
                                 </div>
                                 <button className="friends__card-btn">
