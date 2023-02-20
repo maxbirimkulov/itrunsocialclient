@@ -11,10 +11,12 @@ import {
     PERSIST,
     PURGE,
     REGISTER, } from 'redux-persist'
+import findUsers from "./reducers/findUsers";
 
 const rootReducer = combineReducers({
     products: products,
-    user
+    user,
+    findUsers
 })
 
 const persistConfig = {
