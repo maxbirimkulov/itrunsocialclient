@@ -1,6 +1,6 @@
 import React, {useRef} from 'react';
 import axios from "../../utils/axios";
-import {Button} from "@mui/material";
+import {Button} from "@chakra-ui/react";
 
 const DownLoadBtn = ({images,setImages}) => {
     const image = useRef()

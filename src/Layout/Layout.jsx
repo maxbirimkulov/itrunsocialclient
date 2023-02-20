@@ -1,20 +1,20 @@
 import React from 'react';
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
-import {Outlet} from 'react-router-dom'
-import HomeAside from "../components/HomeAside/HomeAside";
+import {Navigate, Outlet, useLocation} from 'react-router-dom'
+import {useSelector} from "react-redux";
 
 const Layout = () => {
+
+
+    const {user} = useSelector((store) =>  store.user)
+
+
     return (
         <div>
             <Header/>
             <main>
-                <div className="container">
-                    <div className="content">
-                        <HomeAside/>
-                        <Outlet/>
-                    </div>
-                </div>
+                  <Outlet/>
             </main>
             <Footer/>
 
