@@ -7,8 +7,8 @@ import {fillUser} from "../../redux/reducers/user";
 
 const Notifications = () => {
 
-    const {user} = useSelector(store => store.user)
-    const {data} = useSelector(store => store.notification)
+    const {user} = useSelector(store => store.persistedReducer.user)
+    const {data} = useSelector(store => store.persistedReducer.notification)
     const dispatch = useDispatch()
     const toast = useToast()
 
@@ -27,6 +27,31 @@ const Notifications = () => {
         }).then((res) => {
             toast({
                 title: 'Добавлен в друзья',
+                status: 'success',
+                duration: 5000,
+                position: 'center-top',
+                isClosable: true,
+            })
+            dispatch(fillUser(res.data))
+
+        }).catch(() => {
+            toast({
+                title: 'Запрос отклонен',
+                status: 'error',
+                duration: 5000,
+                position: 'center-top',
+                isClosable: true,
+            })
+        })
+    }
+
+    const cancelFriends = (id) => {
+        axios.patch('/request/cancel', {
+            senderId: id,
+            recieverId: user._id
+        }).then((res) => {
+            toast({
+                title: 'Заявка не принята',
                 status: 'success',
                 duration: 5000,
                 position: 'center-top',
@@ -74,7 +99,7 @@ const Notifications = () => {
 
                                     <div>
                                         <div className='notification__btns'>
-                                            <Button color='black' colorScheme='gray'>Отклонить</Button>
+                                            <Button onClick={() => cancelFriends(item._id)} color='black' colorScheme='gray'>Отклонить</Button>
                                             <Button onClick={() => acceptFriends(item._id)} colorScheme='messenger'>Принять</Button>
                                         </div>
                                     </div>

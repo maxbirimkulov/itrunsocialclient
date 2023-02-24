@@ -6,7 +6,7 @@ const NotFound = () => {
 
 
 
-    const {user} = useSelector((store) =>  store.user)
+    const {user} = useSelector((store) =>  store.persistedReducer.user)
 
     if ( !user.login.length) {
         return (

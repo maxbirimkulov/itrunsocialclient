@@ -12,8 +12,8 @@ const Friends = () => {
 
     const dispatch = useDispatch()
 
-    const {user} = useSelector(store => store.user)
-    const {data, filter} = useSelector(store => store.findUsers)
+    const {user} = useSelector(store => store.persistedReducer.user)
+    const {data, filter} = useSelector(store => store.persistedReducer.findUsers)
 
     const [search, setSearch] = useState(filter.search || '' )
 

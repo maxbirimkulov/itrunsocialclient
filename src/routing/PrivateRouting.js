@@ -6,6 +6,7 @@ import Friends from "../pages/Friends/Friends";
 import MyProfile from "../pages/MyProfile/MyProfile";
 import NotFound from "../pages/NotFound/NotFound";
 import Notifications from "../pages/Notifications/Notifications";
+import Request from "../pages/Requests/Request";
 
 const PrivateRouting = () => {
     return (
@@ -15,6 +16,7 @@ const PrivateRouting = () => {
                 <Route path='findfriends' element={<Friends/>}/>
                 <Route path='myprofile' element={<MyProfile/>}/>
                 <Route path='notifications' element={<Notifications/>}/>
+                <Route path='requests' element={<Request/>}/>
                 <Route path='*' element={<NotFound/>}/>
             </Route>
         </Routes>

@@ -7,7 +7,7 @@ import AuthRouting from "./routing/AuthRouting";
 
 function App() {
 
-  const {user} = useSelector((store) => store.user)
+  const {user} = useSelector((store) => store.persistedReducer.user)
 
   return (
     <Suspense fallback={'...Loading'}>
@@ -22,5 +22,4 @@ function App() {
 }
 
 export default App;
-
 

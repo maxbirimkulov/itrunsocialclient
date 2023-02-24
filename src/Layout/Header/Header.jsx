@@ -21,12 +21,15 @@ import {
     PopoverBody,
     Icon
 } from "@chakra-ui/react";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {logOutUser} from "../../redux/reducers/user";
 
 const Header = () => {
 
+
+    const {user} = useSelector(store=> store.persistedReducer.user)
     const dispatch = useDispatch()
+
 
     return (
         <header className='header'>
@@ -40,15 +43,18 @@ const Header = () => {
                         <HeaderSearch/>
                     </div>
                     <div className='header__right'>
-                        <span className='header__notif'>
+                        <Link to='/notifications' className='header__notif'>
                             <IoMdNotifications/>
-                        </span>
+                        </Link>
+                        <Link to='/requests' className='header__notif'>
+                            <IoMdNotifications/>
+                        </Link>
 
 
                         <Popover  placement='top-end'  isLazy>
                             <PopoverTrigger>
                                 <Button  className='header__user'>
-                                    <Avatar  name='Max Birimkulov' src=''/>
+                                    <Avatar   name={`${user.name} ${user.surname}`} src={`${process.env.REACT_APP_URL}${user.image}`}/>
                                     <span className='header__user-icon'>
                                 <BiChevronsDown/>
                                     </span>
@@ -59,10 +65,10 @@ const Header = () => {
                                 <PopoverArrow   bg='black'/>
                                 <div className='header__popover'>
                                     <div className='header__popover-top'>
-                                        <Avatar className='header__popover-img'  name='Max Birimkulov' src=''/>
+                                        <Avatar className='header__popover-img'  name={`${user.name} ${user.surname}`} src={`${process.env.REACT_APP_URL}${user.image}`}/>
                                         <div>
-                                            <h3 className='header__popover-title'>Max Birimkulov</h3>
-                                            <p className='header__popover-num'>+996 505 02 05 99</p>
+                                            <h3 className='header__popover-title'>{user.name} {user.surname}</h3>
+                                            <p className='header__popover-num'>{user.phone}</p>
                                         </div>
                                     </div>
                                     <ul className='header__popover-list'>
